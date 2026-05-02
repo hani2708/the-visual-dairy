@@ -22,7 +22,7 @@ const upload = multer({ storage });
 // upload API
 app.post("/upload", upload.single("photo"), (req, res) => {
     res.json({
-        imageUrl: `http://localhost:5000/uploads/${req.file.filename}`
+        imageUrl: `https://the-visual-dairy-1.onrender.com/uploads/${req.file.filename}`
     });
 });
 
@@ -32,7 +32,7 @@ app.get("/photos", (req, res) => {
         if (err) return res.status(500).send("Error");
 
         const urls = files.map(file =>
-            `http://localhost:5000/uploads/${file}`
+            `https://the-visual-dairy-1.onrender.com/uploads/${file}`
         );
 
         res.json(urls);
