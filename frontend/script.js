@@ -24,7 +24,7 @@ function uploadPhoto() {
     let formData = new FormData();
     formData.append("photo", file);
 
-    fetch("http://localhost:5000/upload", {
+    fetch("https://the-visual-dairy-1.onrender.com/upload", {
         method: "POST",
         body: formData
     }).then(() => loadGallery());
@@ -32,7 +32,7 @@ function uploadPhoto() {
 
 // 🖼️ LOAD GALLERY (UPDATED)
 function loadGallery() {
-    fetch("http://localhost:5000/photos")
+    fetch("https://the-visual-dairy-1.onrender.com/photos")
         .then(res => res.json())
         .then(data => {
             let gallery = document.getElementById("gallery");
@@ -61,7 +61,7 @@ function loadGallery() {
 function deleteImage(url) {
     let fileName = url.split("/").pop();
 
-    fetch(`http://localhost:5000/delete/${fileName}`, {
+    fetch(`https://the-visual-dairy-1.onrender.com/delete/${fileName}`, {
         method: "DELETE"
     })
     .then(() => {
